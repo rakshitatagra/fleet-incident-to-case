@@ -1,0 +1,8 @@
+{
+  "incidentId": "INC-1004",
+  "vehicleNumber": "TRK-07",
+  "type": "Accident",
+  "severity": "Critical",
+  "description": "One delivery has no customer account and is skipped",
+  "reportedAt": "2026-11-02T13:00:00Z"
+}

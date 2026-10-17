@@ -1,0 +1,8 @@
+{
+  "incidentId": "INC-1002",
+  "vehicleNumber": "TRK-404",
+  "type": "Delay",
+  "severity": "Medium",
+  "description": "Vehicle that does not exist in Salesforce",
+  "reportedAt": "2026-11-02T11:00:00Z"
+}

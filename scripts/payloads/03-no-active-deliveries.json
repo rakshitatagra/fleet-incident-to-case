@@ -1,0 +1,8 @@
+{
+  "incidentId": "INC-1003",
+  "vehicleNumber": "TRK-99",
+  "type": "Delay",
+  "severity": "Low",
+  "description": "Vehicle with no active deliveries",
+  "reportedAt": "2026-11-02T12:00:00Z"
+}

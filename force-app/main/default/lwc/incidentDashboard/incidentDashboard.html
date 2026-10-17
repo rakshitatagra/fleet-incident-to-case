@@ -1,0 +1,64 @@
+<template>
+    <lightning-card title="Fleet Incident Dashboard" icon-name="standard:case">
+        <lightning-button slot="actions" label="Refresh" icon-name="utility:refresh" onclick={handleRefresh}></lightning-button>
+
+        <div class="slds-p-horizontal_medium">
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-bottom_small">{errorMessage}</div>
+            </template>
+
+            <div class="slds-grid slds-wrap slds-gutters_small slds-m-bottom_medium">
+                <template for:each={tiles} for:item="tile">
+                    <div key={tile.label} class="slds-col slds-size_1-of-2 slds-medium-size_1-of-4 slds-m-bottom_small">
+                        <div class="slds-box slds-box_x-small slds-text-align_center">
+                            <div class="slds-text-heading_large">{tile.value}</div>
+                            <div class="slds-text-color_weak">{tile.label}</div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <lightning-combobox
+                label="Severity"
+                value={severity}
+                options={severityOptions}
+                onchange={handleSeverityChange}
+                class="slds-m-bottom_small">
+            </lightning-combobox>
+
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+
+            <template if:true={hasIncidents}>
+                <lightning-datatable
+                    key-field="id"
+                    data={incidents}
+                    columns={incidentColumns}
+                    hide-checkbox-column
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </template>
+            <template if:false={hasIncidents}>
+                <p class="slds-text-color_weak slds-p-vertical_small">No incidents found.</p>
+            </template>
+
+            <template if:true={selectedIncident}>
+                <h3 class="slds-text-heading_small slds-m-top_medium slds-m-bottom_small">
+                    Cases for {selectedIncident}
+                </h3>
+                <template if:true={hasCases}>
+                    <lightning-datatable
+                        key-field="id"
+                        data={cases}
+                        columns={caseColumns}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </template>
+                <template if:false={hasCases}>
+                    <p class="slds-text-color_weak">This incident has no cases.</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

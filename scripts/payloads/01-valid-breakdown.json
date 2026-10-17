@@ -1,0 +1,8 @@
+{
+  "incidentId": "INC-1001",
+  "vehicleNumber": "TRK-12",
+  "type": "Breakdown",
+  "severity": "High",
+  "description": "Engine failure on highway",
+  "reportedAt": "2026-11-02T10:05:00Z"
+}
